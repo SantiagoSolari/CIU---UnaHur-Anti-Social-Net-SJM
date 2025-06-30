@@ -1,21 +1,19 @@
-import { UserProvider }from './context/UserContent'
+import Footer from './components/Footer/Footer'
+import Header from './components/Header/Header'
+//import { UserProvider } from './context/UserContent'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 
-function App() {
+const App = () => {
   return (
-
-    <UserProvider >
+    //<UserProvider >
       <BrowserRouter>
+        <Header />
         <Routes > 
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/posts/:id" element={<DetallePublicacion />} />
-          <Route path="/perfilUsuario" element={<PerfilUsuario />} />
         </Routes>
-      
+        <Footer />
       </BrowserRouter>
-    </UserProvider>
+    //</UserProvider>
   )
 }
 
