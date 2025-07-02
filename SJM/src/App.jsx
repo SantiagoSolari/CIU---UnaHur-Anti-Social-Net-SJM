@@ -3,7 +3,6 @@ import Header from './components/Header/Header'
 //import { UserProvider } from './context/UserContent'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-
 const App = () => {
   return (
     //<UserProvider >
