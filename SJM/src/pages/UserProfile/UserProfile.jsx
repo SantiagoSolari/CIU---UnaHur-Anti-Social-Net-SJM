@@ -2,17 +2,17 @@ import { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './UserProfile.module.css'
 import { Carousel } from 'react-bootstrap';
-import { UserContext } from '../../context/UserContent'
+import { UserContext } from '../../context/UserContext'
 
 
 const UserProfile = () => {
-    const { user, logout } = useContext(UserContext)
+    const { usuario, logout } = useContext(UserContext)
     const navigate = useNavigate()
     const [userPosts, setUserPosts] = useState([])
     const [mensaje, setMensaje] = useState(null)
 
     useEffect(() => {
-        if(!user){
+        if(!usuario){
             navigate('/login')
             return    
         }
@@ -20,7 +20,7 @@ const UserProfile = () => {
 
         const posteosUsuario = async () => {
             try {
-                const res = await fetch(`http://localhost:3001/posts?userId=${user.id}`)
+                const res = await fetch(`http://localhost:3001/posts?userId=${usuario.id}`)
                 if(!res.ok){
                     setMensaje(`No se pudieron encontrar las publicaciones del usuario`)
                 }
@@ -29,9 +29,9 @@ const UserProfile = () => {
 
                 const postsDetallado = await Promise.all(posts.map(async (post) => {
                     const resImages = await fetch(`http://localhost:3001/postimages/post/${post.id}`)
-                    const images = resImages ? await resImages.json() : []
+                    const images = resImages.ok ? await resImages.json() : []
                     const resComments = await fetch(`http://localhost:3001/comments/post/${post.id}`)
-                    const comments = resComments ? await resComments.json() : []
+                    const comments = resComments.ok ? await resComments.json() : []
                     const commentCount = comments.length
                     return({...post, images, commentCount}) //...post -> combina las propiedades que ya tiene post junto a las que se agregan (images y comments)
                 }))
@@ -43,7 +43,7 @@ const UserProfile = () => {
         }
 
     posteosUsuario()
-    },[user,navigate])
+    },[usuario, navigate])
 
     const manejarVistaPosts = (postId) => {
         navigate(`/post/${postId}`)
@@ -51,10 +51,10 @@ const UserProfile = () => {
 
     const manejarLogout = () => {
         logout()
-        navigate('/login')
+        navigate('/Login')
     }
 
-    if(!user){
+    if(!usuario){
         return null
     }
     
@@ -62,7 +62,7 @@ const UserProfile = () => {
         <div className='container mt-4'>
             <h2 className='text-center mb-3'>Perfil de Usuario</h2>
             <div className='d-flex justify-content-between align-items-center mb-3'>
-                <h3 className='text-center mb-4'>Bienvenido/a, {user.nickName}</h3>
+                <h3 className='text-center mb-4'>Bienvenido/a, {usuario.nickName}</h3>
                 <button onClick={manejarLogout} className='btn btn-danger btn-sm'>Cerrar Sesión</button>
             </div>
 
@@ -72,7 +72,7 @@ const UserProfile = () => {
             ) : (
                 <div className={styles.postsGridContainer}>
                     {userPosts.map((post) => (
-                        <div key={post.id} className={styles.posts}>
+                        <div key={post.id} className={styles.postCard}>
                             <h5>{post.description}</h5>
                             {post.images && post.images.length > 0 && (
                                 post.images.length > 1 ? (

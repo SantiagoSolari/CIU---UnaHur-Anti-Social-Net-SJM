@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import UserProvider from './context/UserProvider'
 import Registro from './pages/Registro'
 import RutaPrivada from './components/RutaPrivada'
+import UserProfile from './pages/UserProfile/UserProfile'
+import CrearPost from './pages/CrearPost'
 
 const App = () => {
   return (
@@ -23,6 +25,19 @@ const App = () => {
             } />
             
             <Route path='/Registro' element={ <Registro />} />
+
+            <Route path='/perfilUsuario' element={ 
+              <RutaPrivada>
+                <UserProfile />
+              </RutaPrivada>
+            } />
+
+            <Route path='/Crear-Post' element={
+              <RutaPrivada>
+                <CrearPost />
+              </RutaPrivada>
+            }/>
+            
           </Routes>
           <Footer />
         </div>

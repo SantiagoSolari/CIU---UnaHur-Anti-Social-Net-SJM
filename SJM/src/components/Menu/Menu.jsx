@@ -14,6 +14,9 @@ const Menu = () => {
                     <Link to="/perfilUsuario" className="nav-link">Perfil</Link>
                 </li>
                 <li className="nav-item">
+                    <Link to="/Crear-Post" className="nav-link">Crear Post</Link>
+                </li>
+                <li className="nav-item">
                     <Link to="/Login" className="nav-link">Login</Link>
                 </li>
             </ul>
