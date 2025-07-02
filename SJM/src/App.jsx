@@ -8,7 +8,7 @@ const App = () => {
     //<UserProvider >
       <BrowserRouter>
         <Header />
-        <Routes > 
+        <Routes >
         </Routes>
         <Footer />
       </BrowserRouter>
