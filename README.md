@@ -1,12 +1,84 @@
-# React + Vite
+# 🧠 UnaHur Anti-Social Net (Frontend) v2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Image](./src/assets/ANTI-SOCIALNET.jpeg)
+## 📌 Tabla de Contenidos
 
-Currently, two official plugins are available:
+- [⚙️ Instalación y Configuración](#%EF%B8%8F-instalación-y-configuración)
+- [✨ Características](#-características)
+- [📁 Estructura del Proyecto](#estructura-del-proyecto)
+- [🧑‍💻 Autores](#-autores)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚙️ Instalación y Configuración
 
-## Expanding the ESLint configuration
+#### 1. 🔁 Clonar el repositorio:
+ - Abrimos una terminal bash o cmd, y ejecutamos el siguiente comando para clonar el repositorio en la PC: 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+``` 
+git clone https://github.com/SantiagoSolari/CIU---UnaHur-Anti-Social-Net-SJM.git
+
+```
+- Nos movemos a la carpeta del proyecto:
+```
+cd CIU---UnaHur-Anti-Social-Net-SJM
+```
+
+#### 2. 📦 Instalamos dependencias:
+- Ejecutamos el siguiente comando para instalar dependencias: 
+```
+npm install
+```
+
+#### 3. 🔧 Configuramos la semilla:
+
+
+
+#### 4. 🚀 Iniciamos el servidor:
+
+- Ejecutamos nuestro servidor 
+  ```
+  npm run dev
+  ```
+
+## ✨ Características:
+
+✅ Páginas:
+  - **Home**: muestra un feed con publicaciones recientes junto a secciones como un banner de bienvenida y una sección "Sobre nosotros".
+    
+  - **Perfil**: accesible solo para usuarios autenticados, muestra el nombre de usuario, sus publicaciones con detalles básicos y un botón para cerrar sesión.
+    
+  - **Crear Post**: página donde el usuario puede crear un post con descripción obligatoria, URLs de imágenes opcionales y selección de etiquetas.
+    
+  - **Login**: permite que el usuario inicie sesión en la red social.
+    
+  - **Registro**: permite al usuario registrarse en la red social.
+
+## Estructura del Proyecto
+
+```text
+CIU---Unahur-Anti-Social-Net-SJM/
+│   .gitignore
+|   eslint.config.js
+|   index.html
+|   package-lock.json         
+│   package.json     # Archivo de configuracion
+|   README.md
+│   vite.config.js
+├── public/
+└── src/
+    ├── App.css       
+    ├── App.jsx
+    ├── index.css
+    ├── main.jsx
+    │ 
+    ├── assets/ # imagenes globales
+    ├── components/ # Componentes de nuestra aplicación
+    ├── context/      # Definicion del contexto
+    ├── pages/     # Páginas de nuestra aplicación
+```
+
+
+## 🧑‍💻 Autores
+
+ - Solari Santiago Ivan     - Estudiante de la Universidad Nacional de Hurlingham
+ - Tesar Molina Julieta  - Estudiante de la Universidad Nacional de Hurlingham
+ - Alvarez Melina Milagros    - Estudiante de la Universidad Nacional de Hurlingham
