@@ -1,54 +1,89 @@
 import { useState, useEffect } from 'react'
+import { Card, ListGroup, Container, Row, Col, Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
+import Carousel from 'react-bootstrap/Carousel'
 
-
-const Publicaciones = () =>{
+const Publicaciones = () => {
     const [posts, setPosts] = useState([])
-    const [postsImages, setPostsImages] = useState([])
+    const [users, setUsers] = useState([])
+    const [images, setImage] = useState([])
+    const navigate = useNavigate()
 
-    useEffect(() =>{
-        async function obtenerPosts(){
-            try {
-                const res = await fetch('http://localhost:3001/posts')
-                const data = await res.json()
+    useEffect(() => {
+        fetch('http://localhost:3001/posts')
+            .then((res) => res.json())
+            .then((data) => {
                 setPosts(data)
-            } catch (error) {
-                console.log(error.message)
-            }
-        }
-        obtenerPosts()
+            })
+            .catch(error => console.error('Error al cargar posts', error))
+            .finally()
+
+        fetch('http://localhost:3001/users')
+            .then((res) => res.json())
+            .then((data) => setUsers(data))
+            .catch(error => console.error('Error al cargar los usuarios', error))
+            .finally()
     }, [])
 
-    useEffect(() =>{
-        async function obtenerImagesPost(){
-            try {
-                const res = await fetch('http://localhost:3001/postimages/post/:postId')
-                const data = await res.json()
-                setPostsImages(data)
-            } catch (error) {
-                console.log(error.message)
-            }
-        }
-        obtenerImagesPost()
-    }, [])
+    useEffect(() => {
+        posts.map((post) => {
+            fetch(`http://localhost:3001/postimages/post/${post.id}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    setImage((prevImages) => ({
+                        ...prevImages,
+                        [post.id]: data
+                    }));
+                })
+                .catch(error => console.error('Error al cargar las imagenes', error));
+        });
+    }, [posts]);
 
-    const obtenerImageById = (postId) =>{
-        postsImages.filter( img => img.postId === postId)
 
-    }
+    console.log(images)
 
-    return(<div className='container-publicaciones'>
-        {posts.map((post) =>{
-            <div className='publicacion'>
-                <h3>POST</h3>
-                <p>{post.description}</p>
-                <div className='imagenes'>
-                    {obtenerImageById(post._id).map((img, index)=>{
-                        <img src={img.url} alt={`imagen ${index}`} />
-                    })}
-                </div>
-            </div>
-        })}
-    </div>
+    return (
+        <Row className="justify-content-center">
+            {posts.map((post) => (
 
+                <Col xs={12} sm={10} md={8} lg={6} className="mb-4" key={post.id}>
+                    <Card >
+                        <Card.Body>
+                            <Card.Title>{post.User.nickName}</Card.Title>
+                        </Card.Body>
+                        <Card.Body >
+                            {images[post.id] && images[post.id].length > 0 && (
+                                images[post.id].length > 1 ? (
+                                    <Carousel interval={null} indicators={false} className='mb-2' style={{ width: '100%' }}>
+                                        {images[post.id].map((image) => (
+                                            <Carousel.Item key={image.id}>
+                                                <img
+                                                    className="d-block w-100"
+                                                    src={image.url}
+                                                    alt="Post"
+                                                />
+                                            </Carousel.Item>
+                                        ))}
+                                    </Carousel>
+                                ) : (
+                                    <img
+                                        src={images[post.id][0].url}
+                                        alt="Post"
+                                        className="w-100"
+                                    />
+                                )
+                            )}
+                        </Card.Body>
+                        <ListGroup className="list-group-flush">
+                            <ListGroup.Item>
+                                <Button variant="dark" onClick={() => navigate(`/post/${post.id}`)}>Ver Mas</Button>
+                            </ListGroup.Item>
+                        </ListGroup>
+                    </Card>
+                </Col>
+            ))}
+        </Row>
     )
 }
+
+export default Publicaciones

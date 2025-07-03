@@ -1,10 +1,14 @@
-import React from "react"
+import Publicaciones from "../components/Publicaciones/Publicaciones"
+import { Container } from "react-bootstrap"
 
-
-const Home = () =>{
-  return (<div className="contenedor-home">
-    <h1>Feed de publicaciones</h1>
-    <Publicaciones /> 
-  </div>
+const Home = () => {
+  return (
+      <Container className="text-center py-4">
+        <h1>Feed de publicaciones</h1>
+        <Publicaciones />
+      </Container>
   )
 }
+
+
+export default Home

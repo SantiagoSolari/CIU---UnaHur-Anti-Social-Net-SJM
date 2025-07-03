@@ -8,6 +8,8 @@ import Registro from './pages/Registro'
 import RutaPrivada from './components/RutaPrivada'
 import UserProfile from './pages/UserProfile/UserProfile'
 import CrearPost from './pages/CrearPost'
+import Home from './pages/Home'
+import Publicacion from './components/Publicaciones/Publicacion'
 
 const App = () => {
   return (
@@ -23,6 +25,14 @@ const App = () => {
                 <Inicio />
               </RutaPrivada>
             } />
+              
+            <Route path='/' element={ 
+              <RutaPrivada>
+                <Home />
+              </RutaPrivada>
+            } />
+              
+            <Route path='/post/:id' element={<Publicacion />} />
             
             <Route path='/Registro' element={ <Registro />} />
 
@@ -44,7 +54,6 @@ const App = () => {
       </BrowserRouter>
     </UserProvider>
       
-
   )
 }
 
