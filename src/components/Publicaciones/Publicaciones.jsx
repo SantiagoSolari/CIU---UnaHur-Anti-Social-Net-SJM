@@ -70,7 +70,7 @@ const Publicaciones = () => {
                         </Card.Body>
                         <ListGroup className="list-group-flush">
                             <ListGroup.Item>
-                                <Button variant="dark" onClick={() => navigate(`/post/${post.id}`)}>Ver Mas</Button>
+                                <Button className="btn-dark"variant="dark" onClick={() => navigate(`/post/${post.id}`)}>Ver Mas</Button>
                             </ListGroup.Item>
                         </ListGroup>
                     </Card>
