@@ -3,6 +3,7 @@ import { Card, ListGroup, Row, Col, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel'
 import styles from './Publicacion.module.css'
+import no_image from '../../assets/no_image.png'
 
 const Publicaciones = () => {
     const [posts, setPosts] = useState([])
@@ -61,7 +62,7 @@ const Publicaciones = () => {
                                         src={
                                             images[post.id] && images[post.id].length > 0
                                             ? images[post.id][0].url
-                                            : "src/assets/perrito.png"
+                                            : no_image
                                         }
                                         alt="Post"
                                         className={`d-block w-100 ${styles.carouselImg}`}
