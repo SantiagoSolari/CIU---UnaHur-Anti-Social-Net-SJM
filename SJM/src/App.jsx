@@ -1,23 +1,59 @@
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
-//import { UserProvider } from './context/UserContent'
+import Login from './pages/Login'
+import Inicio from './pages/Inicio'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import UserProvider from './context/UserProvider'
+import Registro from './pages/Registro'
+import RutaPrivada from './components/RutaPrivada'
+import UserProfile from './pages/UserProfile/UserProfile'
+import CrearPost from './pages/CrearPost'
 import Home from './pages/Home'
 import Publicacion from './components/Publicaciones/Publicacion'
 
-
 const App = () => {
   return (
-    //<UserProvider >
+    <UserProvider>
       <BrowserRouter>
-        <Header />
-        <Routes >
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/post/:id' element={<Publicacion />}></Route>
-        </Routes>
-        <Footer />
+        <div className='page-container'>
+          <Header />
+          <Routes > 
+            <Route path="/Login" element={ <Login /> } />
+           
+            <Route path='/Inicio' element={ 
+              <RutaPrivada>
+                <Inicio />
+              </RutaPrivada>
+            } />
+              
+            <Route path='/' element={ 
+              <RutaPrivada>
+                <Home />
+              </RutaPrivada>
+            } />
+              
+            <Route path='/post/:id' element={<Publicacion />} />
+            
+            <Route path='/Registro' element={ <Registro />} />
+
+            <Route path='/perfilUsuario' element={ 
+              <RutaPrivada>
+                <UserProfile />
+              </RutaPrivada>
+            } />
+
+            <Route path='/Crear-Post' element={
+              <RutaPrivada>
+                <CrearPost />
+              </RutaPrivada>
+            }/>
+            
+          </Routes>
+          <Footer />
+        </div>
       </BrowserRouter>
-    //</UserProvider>
+    </UserProvider>
+      
   )
 }
 
