@@ -6,7 +6,7 @@ import UserProvider from './context/UserProvider'
 import Registro from './pages/Registro/Registro'
 import RutaPrivada from './components/RutaPrivada'
 import UserProfile from './pages/UserProfile/UserProfile'
-import CrearPost from './pages/CrearPost'
+import CrearPost from './pages/CrearPost/CrearPost'
 import Home from './pages/Home'
 import Publicacion from './components/Publicaciones/Publicacion'
 

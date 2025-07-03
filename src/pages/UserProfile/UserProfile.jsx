@@ -91,8 +91,8 @@ const UserProfile = () => {
                                 ) : (
                                     <img
                                         src={
-                                                post.images[post.id] && post.images[post.id].length > 0
-                                                ? post.images[post.id][0].url
+                                                post.images && post.images.length > 0
+                                                ? post.images[0].url
                                                 : no_image
                                             }
                                             alt="Post"
