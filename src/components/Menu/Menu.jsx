@@ -1,24 +1,25 @@
 import { Link } from 'react-router-dom'
+import styles from './Menu.module.css'
 
 
 const Menu = () => {
   return (
-        <nav className="p-3 mb-2 bg-body-tertiary">
-            <ul className="nav justify-content-center">
-                <li className="nav-item">
-                    <Link to="/Home" className="nav-link">Home</Link>
+        <nav className={styles.navbar}>
+            <ul className={styles.navList}>
+                <li>
+                <Link to="/Home" className={styles.navLink}>Home</Link>
                 </li>
-                <li className="nav-item">
-                    <Link to="/perfilUsuario" className="nav-link">Perfil</Link>
+                <li>
+                <Link to="/perfilUsuario" className={styles.navLink}>Perfil</Link>
                 </li>
-                <li className="nav-item">
-                    <Link to="/Crear-Post" className="nav-link">Crear Post</Link>
+                <li>
+                <Link to="/Crear-Post" className={styles.navLink}>Crear Post</Link>
                 </li>
-                <li className="nav-item">
-                    <Link to="/Login" className="nav-link">Login</Link>
+                <li>
+                <Link to="/Login" className={styles.navLink}>Login</Link>
                 </li>
             </ul>
-        </nav>    
+        </nav>
   )
 }
 

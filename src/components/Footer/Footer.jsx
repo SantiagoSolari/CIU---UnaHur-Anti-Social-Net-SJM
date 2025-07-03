@@ -1,11 +1,11 @@
-import React from 'react'
+import styles from './Footer.module.css'
 
 function Footer() {
   return (
-    <footer className="text-center py-3 mt-auto">
-        <div className="p-3 mb-2 bg-body-tertiary">
-            <p>© Todos los derechos reservados</p>
-        </div>
+    <footer className={styles.footer}>
+      <div className={styles.footerInner}>
+        <p>© Todos los derechos reservados</p>
+      </div>
     </footer>
   )
 }

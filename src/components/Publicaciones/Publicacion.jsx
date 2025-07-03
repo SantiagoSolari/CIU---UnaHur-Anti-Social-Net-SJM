@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Carousel, Row, Card, Col, ListGroup, Button, Form } from "react-bootstrap"
 import { useParams, useNavigate } from 'react-router-dom'
-import './Publicacion.css'
+import styles from './Publicacion.module.css'
 import perrito from '../../assets/perrito.png'
 
 
@@ -85,71 +85,95 @@ const Publicacion = () => {
     return (
         <Row className="justify-content-center">
             <Col xs={12} sm={10} md={8} lg={6} className="mb-4" key={post.id}>
-                <Card className='publicacion-card'>
+                <Card className={styles.publicacionCard}>
                     <Card.Body>
                         <Card.Title>{post?.User?.nickName || user?.nickName}</Card.Title>
                     </Card.Body>
-                    <Card.Body >
-                            {images[id] && (
-                                images[id].length > 1 ? (
-                                    <Carousel interval={null} indicators={false} className='mb-2' style={{ width: '100%' }}>
-                                        {images[id].map((image) => (
-                                            <Carousel.Item key={image.id}>
-                                                <img
-                                                    className="d-block w-100 carousel-img"
-                                                    src={image.url}
-                                                    alt="Post"
-                                                />
-                                            </Carousel.Item>
-                                        ))}
-                                    </Carousel>
-                                ) : (
-                                    <img
-                                        src={
-                                            images[post.id] && images[post.id].length > 0
-                                            ? images[post.id][0].url
-                                            : perrito
-                                        }
-                                        alt="Post"
-                                        className="d-block w-100 carousel-img"
-                                    />
-                                )
-                            )}
+
+                    <Card.Body>
+                        {images[id] && (
+                        images[id].length > 1 ? (
+                            <Carousel interval={null} indicators={false} className="mb-2" style={{ width: '100%' }}>
+                            {images[id].map((image) => (
+                                <Carousel.Item key={image.id}>
+                                <img
+                                    className={`d-block w-100 ${styles.carouselImg}`}
+                                    src={image.url}
+                                    alt="Post"
+                                />
+                                </Carousel.Item>
+                            ))}
+                            </Carousel>
+                        ) : (
+                            <img
+                            src={
+                                images[post.id] && images[post.id].length > 0
+                                ? images[post.id][0].url
+                                : perrito
+                            }
+                            alt="Post"
+                            className={`d-block w-100 ${styles.carouselImg}`}
+                            />
+                        )
+                        )}
                     </Card.Body>
+
                     <ListGroup className="list-group-flush">
-                        <ListGroup.Item>Descripción: {post.description}</ListGroup.Item>
-                        <ListGroup.Item>
-                            Comentarios: {comentarios.length > 0 ? (
-                                comentarios?.map((c, index) => (
-                                    <span key={c.id}>
-                                        {c.content}
-                                        {index < comentarios.length - 1 ? ' - ' : ''}
-                                    </span>
+                        <div className={styles.listGroupItem}>
+                        Descripción: {post.description}
+                        </div>
+                        <div className={styles.listGroupItem}>
+                            Etiquetas:{' '}
+                            {post?.Tags?.length > 0 ? (
+                                post.Tags.map((tag) => (
+                                <span key={tag.id} className={styles.tag}>
+                                    {tag.name ?? "Sin Tags"}
+                                </span>
                                 ))
-                            ) : "Sin comentarios"}
-                        </ListGroup.Item>
-                        <ListGroup.Item>Cantidad Comentarios: {comentarios.length ?? 0}</ListGroup.Item>
-                        <ListGroup.Item>Etiquetas: {post?.Tags?.map((tag, index) => (
-                            <span key={tag.id}>
-                                {tag.name ?? "Sin Tags"}
-                                {index < post.Tags.length - 1 ? " - " : ""}
-                            </span>
-                        ))}</ListGroup.Item>
+                            ) : (
+                                <span className={styles.tag}>Sin Tags</span>
+                            )}
+                        </div>
+                        <div className={styles.listGroupItem}>
+                        <details className={styles.details}>
+                            <summary className={styles.summary}>
+                            {comentarios.length ?? 0} Comentarios
+                            </summary>
+
+                            {comentarios.length > 0 ? (
+                            comentarios.map((c) => (
+                                <p key={c.id} className={styles.comentarioText}>
+                                {c.content}
+                                </p>
+                            ))
+                            ) : (
+                            <p className={styles.comentarioText}>Sin comentarios</p>
+                            )}
+                        </details>
+                        </div>
                     </ListGroup>
-                </Card>
-                <Button  variant="dark" onClick={() => navigate(`/Home`)}>Volver</Button>
-                <Form onSubmit={agregarComentario} className="comentario-form mt-3">
-                    <Form.Control
+
+                    <Button
+                        variant="dark"
+                        className={styles.volverBtn}
+                        onClick={() => navigate(`/Home`)}
+                    >
+                        Volver
+                    </Button>
+
+                    <Form onSubmit={agregarComentario} className={styles.comentarioForm}>
+                        <Form.Control
                         type="text"
                         value={nuevoComentario}
                         onChange={(e) => setNuevoComentario(e.target.value)}
                         placeholder="Escribí un comentario..."
-                        className='comentario-input'
-                    />
-                    <Button variant="dark" type="submit" className="btn-comentar w-100">
+                        className={styles.comentarioInput}
+                        />
+                        <Button variant="dark" type="submit" className={`w-100 ${styles.btnComentar}`}>
                         Comentar
-                    </Button>
-                </Form>
+                        </Button>
+                    </Form>
+                </Card>
 
             </Col>
         </Row>
