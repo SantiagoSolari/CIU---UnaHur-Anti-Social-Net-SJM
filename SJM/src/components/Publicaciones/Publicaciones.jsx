@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import { Card, ListGroup, Container, Row, Col, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel'
+import './Publicacion.css'
 
 const Publicaciones = () => {
     const [posts, setPosts] = useState([])
-    const [users, setUsers] = useState([])
     const [images, setImage] = useState([])
     const navigate = useNavigate()
 
@@ -16,12 +16,6 @@ const Publicaciones = () => {
                 setPosts(data)
             })
             .catch(error => console.error('Error al cargar posts', error))
-            .finally()
-
-        fetch('http://localhost:3001/users')
-            .then((res) => res.json())
-            .then((data) => setUsers(data))
-            .catch(error => console.error('Error al cargar los usuarios', error))
             .finally()
     }, [])
 
@@ -39,9 +33,6 @@ const Publicaciones = () => {
         });
     }, [posts]);
 
-
-    console.log(images)
-
     return (
         <Row className="justify-content-center">
             {posts.map((post) => (
@@ -52,13 +43,13 @@ const Publicaciones = () => {
                             <Card.Title>{post.User.nickName}</Card.Title>
                         </Card.Body>
                         <Card.Body >
-                            {images[post.id] && images[post.id].length > 0 && (
+                            {images[post.id] && (
                                 images[post.id].length > 1 ? (
                                     <Carousel interval={null} indicators={false} className='mb-2' style={{ width: '100%' }}>
                                         {images[post.id].map((image) => (
                                             <Carousel.Item key={image.id}>
                                                 <img
-                                                    className="d-block w-100"
+                                                    className="d-block w-100 carousel-img"
                                                     src={image.url}
                                                     alt="Post"
                                                 />
@@ -67,11 +58,14 @@ const Publicaciones = () => {
                                     </Carousel>
                                 ) : (
                                     <img
-                                        src={images[post.id][0].url}
+                                        src={
+                                            images[post.id] && images[post.id].length > 0
+                                            ? images[post.id][0].url
+                                            : "src/assets/perrito.png"
+                                        }
                                         alt="Post"
-                                        className="w-100"
-                                    />
-                                )
+                                        className="d-block w-100 carousel-img"
+                                    />) 
                             )}
                         </Card.Body>
                         <ListGroup className="list-group-flush">
