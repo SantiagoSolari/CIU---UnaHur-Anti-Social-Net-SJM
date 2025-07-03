@@ -29,12 +29,28 @@ npm install
 ```
 
 #### 3. 🔧 Configuramos la semilla:
+- Debemos clonar el backend de la siguiente API:
+```
+git clone https://github.com/SantiagoSolari/backendApi
+```
 
+- Debemos descargar las dependencias ejecutando el siguiente comando en la consola:
+```
+npm i
+```
 
+- Debemos Poblar la base de datos ejecutando el siguiente comando en la consola:
+```
+node seed.js
+```
+- Debemos inicializar el backend para poder utilizar la API junto al front ejecutando el siguiente comando en la consola:
+```
+npm run dev
+```
 
 #### 4. 🚀 Iniciamos el servidor:
 
-- Ejecutamos nuestro servidor 
+- Ejecutamos nuestra aplicacion de React 
   ```
   npm run dev
   ```
