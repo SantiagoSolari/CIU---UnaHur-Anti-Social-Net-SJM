@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import styles from './UserProfile.module.css'
 import { Carousel } from 'react-bootstrap';
 import { UserContext } from '../../context/UserContext'
-import perrito from '../../assets/perrito.png'
+import no_image from '../../assets/no_image.png'
 
 
 const UserProfile = () => {
@@ -93,7 +93,7 @@ const UserProfile = () => {
                                         src={
                                                 post.images[post.id] && post.images[post.id].length > 0
                                                 ? post.images[post.id][0].url
-                                                : perrito
+                                                : no_image
                                             }
                                             alt="Post"
                                             className={styles.postImage}

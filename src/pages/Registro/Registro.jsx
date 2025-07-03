@@ -1,6 +1,7 @@
 import { Container, Button, Form, Alert } from "react-bootstrap"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import styles from './Registro.module.css'
 
 const Registro = () => {
   const [nickName, setNickname] = useState("")
@@ -56,9 +57,9 @@ const Registro = () => {
 
 
   return (
-    <Container className="d-flex justify-content-center mt-5">
+    <Container fluid className={styles.loginWrapper}>
+      <div className={styles.loginCard}>
         <Form onSubmit={validarRegistro}>
-
             <Form.Group  md="4" controlId="validationCustom01">
                 <Form.Label>Nombre de usuario</Form.Label>
                 <Form.Control type="text" onChange={(e) => setNickname(e.target.value) } placeholder="nombre de usuario" />
@@ -77,10 +78,12 @@ const Registro = () => {
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Recordar contraseña" />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="dark" type="submit">
                 Registrarse
             </Button>
         </Form>
+      </div>
+        
       
     </Container>
   )

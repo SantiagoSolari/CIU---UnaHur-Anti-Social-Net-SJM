@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Card, ListGroup, Container, Row, Col, Button } from 'react-bootstrap'
+import { Card, ListGroup, Row, Col, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel'
-import './Publicacion.css'
+import styles from './Publicacion.module.css'
 
 const Publicaciones = () => {
     const [posts, setPosts] = useState([])
@@ -38,7 +38,7 @@ const Publicaciones = () => {
             {posts.map((post) => (
 
                 <Col xs={12} sm={10} md={8} lg={6} className="mb-4" key={post.id}>
-                    <Card className='publicacion-card'>
+                    <Card className={styles.publicacionCard}>
                         <Card.Body>
                             <Card.Title>{post.User.nickName}</Card.Title>
                         </Card.Body>
@@ -49,7 +49,7 @@ const Publicaciones = () => {
                                         {images[post.id].map((image) => (
                                             <Carousel.Item key={image.id}>
                                                 <img
-                                                    className="d-block w-100 carousel-img"
+                                                    className={`d-block w-100 ${styles.carouselImg}`}
                                                     src={image.url}
                                                     alt="Post"
                                                 />
@@ -64,7 +64,7 @@ const Publicaciones = () => {
                                             : "src/assets/perrito.png"
                                         }
                                         alt="Post"
-                                        className="d-block w-100 carousel-img"
+                                        className={`d-block w-100 ${styles.carouselImg}`}
                                     />) 
                             )}
                         </Card.Body>
