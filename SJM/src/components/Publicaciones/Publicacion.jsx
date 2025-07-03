@@ -85,7 +85,7 @@ const Publicacion = () => {
     return (
         <Row className="justify-content-center">
             <Col xs={12} sm={10} md={8} lg={6} className="mb-4" key={post.id}>
-                <Card >
+                <Card className='form-container'>
                     <Card.Body>
                         <Card.Title>{post?.User?.nickName || user?.nickName}</Card.Title>
                     </Card.Body>
@@ -137,15 +137,16 @@ const Publicacion = () => {
                         ))}</ListGroup.Item>
                     </ListGroup>
                 </Card>
-                <Button variant="dark" onClick={() => navigate(`/`)}>Volver</Button>
-                <Form onSubmit={agregarComentario}>
+                <Button className="btn-volver" variant="dark" onClick={() => navigate(`/`)}>Volver</Button>
+                <Form onSubmit={agregarComentario} className="comentario-form mt-3">
                     <Form.Control
                         type="text"
                         value={nuevoComentario}
                         onChange={(e) => setNuevoComentario(e.target.value)}
                         placeholder="Escribí un comentario..."
+                        className='comentario-input'
                     />
-                    <Button variant="dark" type="submit" className="mt-2">
+                    <Button variant="dark" type="submit" className="btn-comentar w-100">
                         Comentar
                     </Button>
                 </Form>
