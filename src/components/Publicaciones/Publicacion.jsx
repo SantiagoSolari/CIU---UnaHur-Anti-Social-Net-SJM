@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import { Carousel, Row, Card, Col, ListGroup, Button, Form } from "react-bootstrap"
 import { useParams, useNavigate } from 'react-router-dom'
 import styles from './Publicacion.module.css'
-import perrito from '../../assets/perrito.png'
+import no_image from '../../assets/no_image.png'
+import usuario from '../../assets/usuario.jpg'
 
 
 const Publicacion = () => {
@@ -83,11 +84,13 @@ const Publicacion = () => {
 
 
     return (
-        <Row className="justify-content-center">
+        <div className={styles.contenedorPost}> 
+            <Row className="justify-content-center">
             <Col xs={12} sm={10} md={8} lg={6} className="mb-4" key={post.id}>
                 <Card className={styles.publicacionCard}>
-                    <Card.Body>
-                        <Card.Title>{post?.User?.nickName || user?.nickName}</Card.Title>
+
+                    <Card.Body className={styles.cardNickname}>
+                        <Card.Title><img src={usuario} style={{width:"40px"}}/><span style={{color:"black", fontSize:"1.3rem"}}>{post?.User?.nickName || user?.nickName}</span></Card.Title>
                     </Card.Body>
 
                     <Card.Body>
@@ -109,7 +112,7 @@ const Publicacion = () => {
                             src={
                                 images[post.id] && images[post.id].length > 0
                                 ? images[post.id][0].url
-                                : perrito
+                                : no_image
                             }
                             alt="Post"
                             className={`d-block w-100 ${styles.carouselImg}`}
@@ -153,14 +156,6 @@ const Publicacion = () => {
                         </div>
                     </ListGroup>
 
-                    <Button
-                        variant="dark"
-                        className={styles.volverBtn}
-                        onClick={() => navigate(`/Home`)}
-                    >
-                        Volver
-                    </Button>
-
                     <Form onSubmit={agregarComentario} className={styles.comentarioForm}>
                         <Form.Control
                         type="text"
@@ -173,10 +168,21 @@ const Publicacion = () => {
                         Comentar
                         </Button>
                     </Form>
+
+                    <Button
+                        variant="dark"
+                        className={styles.volverBtn}
+                        onClick={() => navigate(`/Home`)}
+                    >
+                        Volver
+                    </Button>
+
                 </Card>
 
             </Col>
-        </Row>
+            </Row>
+        </div>
+        
     )
 }
 

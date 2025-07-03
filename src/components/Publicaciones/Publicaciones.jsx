@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Card, ListGroup, Container, Row, Col, Button } from 'react-bootstrap'
+import { Card, ListGroup, Row, Col, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel'
 import styles from './Publicacion.module.css'
