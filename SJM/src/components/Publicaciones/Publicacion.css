@@ -1,5 +1,95 @@
+.card {
+  border: 1px solid #dbdbdb;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+.card-title {
+  font-weight: bold;
+  color: #262626;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
 .carousel-img {
-    height: 300px; 
-    object-fit: cover; 
-    border-radius: 10px; 
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.list-group-item {
+  background-color: #fafafa;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+button.btn-dark {
+  background-color: #0095f6;
+  border: none;
+}
+
+button.btn-dark:hover {
+  background-color: #007acc;
+}
+
+form input {
+  border-radius: 6px;
+}
+
+form .btn {
+  width: 100%;
+}
+
+
+.btn-volver {
+  background-color: transparent;
+  color: #0095f6;
+  border: none;
+  font-weight: 600;
+  padding: 0;
+}
+
+.btn-volver:hover {
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+/* Formulario de comentario */
+.form-container {
+  border-top: 1px solid #dbdbdb;
+  padding-top: 16px;
+}
+
+.comentario-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Campo de texto */
+.comentario-input {
+  border-radius: 10px;
+  border: 1px solid #dbdbdb;
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #fafafa;
+}
+
+/* Botón comentar */
+.btn-comentar {
+  background-color: #0095f6;
+  border: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.btn-comentar:hover {
+  background-color: #007acc;
 }

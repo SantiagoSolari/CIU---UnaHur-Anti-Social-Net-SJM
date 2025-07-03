@@ -1,7 +1,6 @@
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import Login from './pages/Login'
-import Inicio from './pages/Inicio'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import UserProvider from './context/UserProvider'
 import Registro from './pages/Registro'
@@ -19,14 +18,8 @@ const App = () => {
           <Header />
           <Routes > 
             <Route path="/Login" element={ <Login /> } />
-           
-            <Route path='/Inicio' element={ 
-              <RutaPrivada>
-                <Inicio />
-              </RutaPrivada>
-            } />
               
-            <Route path='/' element={ 
+            <Route path='/Home' element={ 
               <RutaPrivada>
                 <Home />
               </RutaPrivada>
