@@ -1,4 +1,4 @@
-# 🧠 UnaHur Anti-Social Net (Frontend) v2
+# 🧠 UnaHur Anti-Social Net (Frontend) 
 
 ![Image](./src/assets/ANTI-SOCIALNET.jpeg)
 ## 📌 Tabla de Contenidos
