@@ -38,7 +38,7 @@ const Publicaciones = () => {
             {posts.map((post) => (
 
                 <Col xs={12} sm={10} md={8} lg={6} className="mb-4" key={post.id}>
-                    <Card >
+                    <Card className='publicacion-card'>
                         <Card.Body>
                             <Card.Title>{post.User.nickName}</Card.Title>
                         </Card.Body>
