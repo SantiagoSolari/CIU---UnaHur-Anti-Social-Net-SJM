@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import styles from './UserProfile.module.css'
 import { Carousel } from 'react-bootstrap';
 import { UserContext } from '../../context/UserContext'
+import perrito from '../../assets/perrito.png'
 
 
 const UserProfile = () => {
@@ -74,7 +75,7 @@ const UserProfile = () => {
                     {userPosts.map((post) => (
                         <div key={post.id} className={styles.postCard}>
                             <h5>{post.description}</h5>
-                            {post.images && post.images.length > 0 && (
+                            {post.images && (
                                 post.images.length > 1 ? (
                                     <Carousel interval={null} indicators={false} className='mb-2' style={{ width: '100%'}}>
                                         {post.images.map(image => (
@@ -88,10 +89,14 @@ const UserProfile = () => {
                                         ))}
                                     </Carousel>
                                 ) : (
-                                    <img 
-                                        src={post.images[0].url}
-                                        alt='Post'
-                                        className={styles.postImage}
+                                    <img
+                                        src={
+                                                post.images[post.id] && post.images[post.id].length > 0
+                                                ? post.images[post.id][0].url
+                                                : perrito
+                                            }
+                                            alt="Post"
+                                            className={styles.postImage}
                                     />
                                 )
                             )}
