@@ -1,0 +1,110 @@
+.contenedorPost{
+  padding: 3rem;
+}
+
+.publicacionCard {
+  position: relative;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+  overflow: hidden;
+  padding: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cardNickname{
+  padding: 0px;
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  border: rgb(117, 117, 117) 1px solid;
+}
+
+.carouselImg {
+  border-radius: 8px;
+  max-height: 400px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.listGroupItem {
+  margin-top: 10px;
+  padding: 0.5rem 0.75rem;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.listGroupItem:hover {
+  background-color: #f0f2f5;
+}
+
+.listGroupItem span {
+  color: #555;
+  font-weight: 500;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e0f3ff;
+  color: #0a4f7d;
+  padding: 0.25rem 0.75rem;
+  margin: 0.25rem 0.5rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 999px;
+  border: 1px solid #b6dfff;
+  transition: background-color 0.3s ease;
+}
+
+.tag:hover {
+  background-color: #cce9ff;
+}
+
+.details {
+  cursor: pointer;
+  padding: 0.5rem 0;
+  outline: none;
+}
+
+.summary {
+  font-weight: 600;
+  font-size: 1.05rem;
+  list-style: none;
+  user-select: none;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.comentarioText {
+  margin: 0.25rem 0;
+  padding-left: 1.5rem;
+  color: #555;
+  font-size: 0.95rem;
+  border-left: 3px solid #ddd;
+}
+
+.volverBtn {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 10;
+}
+
+.comentarioForm {
+  margin-top: 1rem; 
+  margin-bottom: 3rem;
+}
+
+.comentarioInput {
+  margin-bottom: 0.5rem;
+  padding: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.btnComentar {
+  padding: 0.4rem;
+  font-size: 0.9rem;
+}

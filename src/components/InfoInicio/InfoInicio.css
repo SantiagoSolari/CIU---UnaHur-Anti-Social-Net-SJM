@@ -1,0 +1,45 @@
+.info-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.mini-card-img {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  border-radius: 16px;
+  margin: 0 auto;
+  display: block;
+}
+
+.logout-button {
+  position: relative;
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+@media (max-height: 700px) {
+  .info-wrapper {
+    height: auto;
+    padding: 2rem 0;
+    overflow-y: auto;
+  }
+
+  .info-container {
+    max-height: none;
+  }
+}

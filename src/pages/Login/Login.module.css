@@ -1,0 +1,42 @@
+.loginWrapper {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.1rem;
+}
+
+.loginCard { 
+  min-height: 400px;
+  background-color: #ffffff;
+  padding: 4rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 400px;
+}
+
+
+.loginCard form label {
+  font-weight: 500;
+  color: #333;
+}
+
+.loginCard form input {
+  border-radius: 6px;
+}
+
+.loginCard form .form-check-label {
+  color: #555;
+}
+
+.loginCard button {
+  min-width: 120px;
+}
+
+.botonesWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+}
+

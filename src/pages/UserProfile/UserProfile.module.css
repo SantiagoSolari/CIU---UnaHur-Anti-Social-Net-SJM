@@ -1,0 +1,32 @@
+.postsGridContainer {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 20px;
+ padding: 30px;
+}
+
+
+.postCard {
+ border: 1px solid #bcbcbc;
+ border-radius: 8px;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ padding: 15px;
+ display: flex;
+ flex-direction: column;
+ text-align: center;
+}
+
+
+.postImage {
+ width: 100%;
+ max-height: 350px; 
+ object-fit: cover;
+ margin-bottom: 10px;
+}
+
+@media (max-width: 768px){
+    .postCard{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
