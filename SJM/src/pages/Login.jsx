@@ -39,7 +39,7 @@ export default function Login() {
     }
     console.log(usuarioEncontrado)
     login(usuarioEncontrado)
-    navigate("/Inicio")
+    navigate("/Home")
   }
 
   //Redireccion a registro de usuario

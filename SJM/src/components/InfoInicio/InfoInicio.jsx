@@ -1,16 +1,7 @@
-import { Container, Card, Button, Carousel } from 'react-bootstrap'
-import { useUserContext } from '../../context/UserContext'
-import { useNavigate } from "react-router-dom"
+import { Container, Card, Carousel } from 'react-bootstrap'
 import './InfoInicio.css'
 
 const InfoInicio = () => {
-  const { logout } = useUserContext()
-  const navigate = useNavigate()
-
-  const cerrarSesion = () => {
-    logout()
-    navigate("/Login")
-  }
 
   const carouselItems = [
     "Compartí tus ideas",
@@ -44,10 +35,6 @@ const InfoInicio = () => {
             </Carousel.Item>
           ))}
         </Carousel>
-
-        <Button variant="danger" className="logout-button" onClick={cerrarSesion}>
-          Cerrar sesión
-        </Button>
       </Container>
     </div>
   )

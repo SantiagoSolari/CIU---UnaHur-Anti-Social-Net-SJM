@@ -137,7 +137,7 @@ const Publicacion = () => {
                         ))}</ListGroup.Item>
                     </ListGroup>
                 </Card>
-                <Button className="btn-volver" variant="dark" onClick={() => navigate(`/`)}>Volver</Button>
+                <Button className="btn-volver" variant="dark" onClick={() => navigate(`/Home`)}>Volver</Button>
                 <Form onSubmit={agregarComentario} className="comentario-form mt-3">
                     <Form.Control
                         type="text"
